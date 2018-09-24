@@ -3,13 +3,13 @@ package com.robotpajamas.android.stetho.couchbase;
 import android.app.Application;
 import android.content.Context;
 
+import com.couchbase.lite.CouchbaseLiteException;
 import com.couchbase.lite.Database;
-import com.couchbase.lite.Document;
-import com.couchbase.lite.Manager;
-import com.couchbase.lite.android.AndroidContext;
+import com.couchbase.lite.MutableDocument;
 import com.facebook.stetho.Stetho;
 import com.robotpajamas.stetho.couchbase.CouchbaseInspectorModulesProvider;
 
+import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +17,7 @@ import timber.log.Timber;
 
 public class MainApplication extends Application {
 
-    private Manager mManager;
+
     private Database mDatabase;
 
     @Override
@@ -50,18 +50,16 @@ public class MainApplication extends Application {
         s.put("key8", "value8");
         s.put("key9", "value9");
         s.put("key10", "value10");
-
-        try {
-            mManager = new Manager(new AndroidContext(context), Manager.DEFAULT_OPTIONS);
-            mDatabase = mManager.getDatabase("stetho-couchbase-sample");
-            Document doc = mDatabase.getDocument("id:123456");
-            doc.putProperties(s);
-            doc = mDatabase.getDocument("p::abcdefg");
-            doc.putProperties(s);
-            doc = mDatabase.getDocument("p::123abc");
-            doc.putProperties(s);
-        } catch (Exception ignored) {
-
+        mDatabase=DatabaseManager.getSharedInstance(context).database;
+        for (int i = 0; i < 100; i++) {
+            MutableDocument mutableDocument=new MutableDocument();
+            mutableDocument.setInt("key",i);
+            try {
+                mDatabase.save(mutableDocument);
+            } catch (CouchbaseLiteException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 }

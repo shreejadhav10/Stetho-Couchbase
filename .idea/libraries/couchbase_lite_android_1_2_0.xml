@@ -7,7 +7,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.couchbase.lite/couchbase-lite-android/1.2.0/c6bdc4d6ffc5b95fe72c27fddd714e355f017deb/couchbase-lite-android-1.2.0-sources.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.couchbase.lite/couchbase-lite-android/1.2.0/c6bdc4d6ffc5b95fe72c27fddd714e355f017deb/couchbase-lite-android-1.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

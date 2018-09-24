@@ -7,7 +7,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.timber/timber/4.3.1/34814ccb0d48cd59694ae6b6a42a12e7e5aa9fc9/timber-4.3.1-sources.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.timber/timber/4.3.1/34814ccb0d48cd59694ae6b6a42a12e7e5aa9fc9/timber-4.3.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
